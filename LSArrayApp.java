@@ -77,4 +77,47 @@ public class LSArrayApp {
         input.close();
         this.printAreas(stage, date, time);
     }
+
+    /**
+     * akes stage, date and startTime
+     * uses a for loop to search through the array for the loadshedding with the
+     * same period
+     * the loop terminates once this is found
+     * 
+     * @param stage
+     * @param date
+     * @param startTime
+     */
+    public void printAreas(String stage, String date, String startTime) {
+
+        String string = stage + "_" + date + "_" + startTime;
+        for (int j = 0; j < 2976; j++) {
+            if (string.equals(array[j].getPeriod())) {
+                int space = array[j].toString().indexOf(" ");
+                String strin = array[j].toString();
+                System.out.println(strin.substring(space));
+                break;
+            }
+            count++;
+        }
+    }
+
+    /**
+     * prints out the entire array
+     */
+    public void printAllAreas() {
+        for (int k = 0; k < 2976; k++) {
+            System.out.println(array[k].toString());
+        }
+    }
+
+    /**
+     * Returns count
+     * 
+     * @return size of count
+     */
+
+    public int getCount() {
+        return count;
+    }
 }
